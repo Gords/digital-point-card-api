@@ -25,9 +25,6 @@ router.get('/points', auth, async (req, res)=>{
     const match = {}
     const sort = {}
 
-    if(req.query.completed){
-        match.completed = req.query.completed === 'true'
-    } 
 
     if(req.query.sortBy){
         const parts = req.query.sortBy.split(':')
@@ -66,7 +63,7 @@ router.get('/points/:id', auth, async (req, res)=>{
 
 router.patch('/points/:id', auth, async (req, res)=>{
     const updates = Object.keys(req.body)
-    const allowedUpdates = ['description', 'completed']
+    const allowedUpdates = ['description', 'amount']
     const isValidOperation = updates.every((update)=> allowedUpdates.includes(update))
 
     if (!isValidOperation) {

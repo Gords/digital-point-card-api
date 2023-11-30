@@ -7,10 +7,6 @@ const pointSchema = mongoose.Schema({
         trim: true,
         required: true
     },
-    completed: {
-        type: Boolean,
-        default: false
-    },
     owner: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,

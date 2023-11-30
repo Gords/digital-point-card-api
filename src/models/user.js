@@ -33,16 +33,16 @@ const userSchema = new mongoose.Schema({
                 throw new Error('Password cannot contain "password"')
             } 
         }
-    }, 
-    age : {
+    },
+    age: {
         type: Number,
         default: 0,
         validate(value){
-            if (value < 0) {
-                throw new Error('Age must be a positive number') 
+            if(value < 0){
+                throw new Error ('Age must be a positive number')
             }
         }
-    },
+    }, 
     tokens: [{
         token: {
             type: String,

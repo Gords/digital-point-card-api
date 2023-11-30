@@ -14,7 +14,7 @@ router.post('/users',async (req, res)=>{
         const token = await user.generateAuthToken()
         res.status(201).send({user, token})
     } catch (e) {
-        res.status(400).send(e)
+        res.status(400).send()
     }
 })
 
@@ -57,7 +57,7 @@ router.get('/users/me', auth, async (req, res)=>{
 
 router.patch('/users/me', auth, async (req, res)=>{
     const updates = Object.keys(req.body)
-    const allowedUpdates = ['name', 'email', 'password', 'age']
+    const allowedUpdates = ['name', 'email', 'password']
     const isValidOperation = updates.every((update)=> allowedUpdates.includes(update))
 
     if (!isValidOperation) {
