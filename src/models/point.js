@@ -15,6 +15,11 @@ const pointSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         required: true,
         ref: 'User'
+    },
+    amount: {
+        type: Number,
+        required: true,
+        default: 0,
     }
 }, 
 {
